@@ -6,20 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.3/select2.min.css"
+        integrity="sha512-iVAPZRCMdOOiZWYKdeY78tlHFUKf/PqAJEf/0bfnkxJ8MHQHqNXB/wK2y6RH/LmoQ0avRlGphSn06IMMxSW+xw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.3/select2.min.js"
+        integrity="sha512-nwnflbQixsRIWaXWyQmLkq4WazLLsPLb1k9tA0SEx3Njm+bjEBVbLTijfMnztBKBoTwPsyz4ToosyNn/4ahTBQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.3/select2-bootstrap.min.css"
+        integrity="sha512-eNfdYTp1nlHTSXvQD4vfpGnJdEibiBbCmaXHQyizI93wUnbCZTlrs1bUhD7pVnFtKRChncH5lpodpXrLpEdPfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        .select2 {
+            font-family: 'FontAwesome'
+        }
+    </style>
 </head>
 
 <body>
-
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group"> <label>Minimal</label> <select
-                        class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true">
+                <div class="form-group"> <label>Minimal</label> <select class="form-control select2"
+                        style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <option value="" disabled selected>Choose your State</option>
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -27,7 +44,7 @@
                         <option>Tennessee</option>
                         <option>Texas</option>
                         <option>Washington</option>
-                    </select> 
+                    </select>
                 </div>
             </div>
         </div>
@@ -36,6 +53,16 @@
 </body>
 
 <script>
+    $(function () {
+        var placeholder = "&#xf002 Select a place";
+        $(".select2").select2({
+            placeholder: placeholder,
+            width: null,
+            escapeMarkup: function (m) {
+                return m;
+            }
+        });
+    });
     $(document).ready(function () {
         $('.select2').select2({
             closeOnSelect: true
